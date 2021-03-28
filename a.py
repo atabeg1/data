@@ -16,4 +16,4 @@ repo = git.Repo()
 repo.git.add('--all')
 repo.git.commit('-m', 'commit message from python script', author='raspberry-omer <kralabitayfa2@gmail.com>')
  
-repo.git.push("origin", "HEAD:refs/for/master")
+repo.git.push()
