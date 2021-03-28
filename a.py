@@ -17,4 +17,4 @@ repo.git.add('--all')
 repo.git.commit('-m', 'commit message from python script', author='raspberry-omer <kralabitayfa2@gmail.com>')
  
 # repo.git.push()
-os.system("git push -u origin main")
+os.system("git push -u origin main") 
