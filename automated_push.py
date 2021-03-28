@@ -28,19 +28,19 @@ def git_push():
     
     # repo.git.push()
     os.system("git push -u origin main") 
-    print(datetime.now().strftime("%m_%d_%Y-%H_%M_%S"), "Push process is completed.")
+    print(datetime.now().strftime("%m-%d-%Y %H:%M:%S"), "Push process is completed.")
 
 def copy_log_to_dir():
     log_name = "binance-trader.log"
     if os.path.isfile(log_name):
-        print(datetime.now().strftime("%m_%d_%Y-%H_%M_%S"), "File exist.")
+        print(datetime.now().strftime("%m-%d-%Y %H:%M:%S"), "File exist.")
         os.remove(log_name)
-        print(datetime.now().strftime("%m_%d_%Y-%H_%M_%S"), "File is removed.")
+        print(datetime.now().strftime("%m-%d-%Y %H:%M:%S"), "File is removed.")
     else:
-        print(datetime.now().strftime("%m_%d_%Y-%H_%M_%S"), "File not exist.")
+        print(datetime.now().strftime("%m-%d-%Y %H:%M:%S"), "File not exist.")
 
     copyfile("../../binance-trader/" + log_name  ,os.getcwd() + "/" + log_name)
-    print(datetime.now().strftime("%m_%d_%Y-%H_%M_%S"), "File is copied.")
+    print(datetime.now().strftime("%m-%d-%Y %H:%M:%S"), "File is copied.")
 
 def writeZero():
     try:
@@ -49,6 +49,7 @@ def writeZero():
             "field1": "0"
         }
         channelWrite.update(data)
+        print(datetime.now().strftime("%m-%d-%Y %H:%M:%S"), "Thingspeak flag is reset.")
     except:
         pass
 
@@ -59,12 +60,12 @@ def shouldPush():
         fieldLast = int(fieldDict["field1"])
 
         if fieldLast == 1:
-            print(datetime.now().strftime("%m_%d_%Y-%H_%M_%S"), "Request arrived.")
+            print(datetime.now().strftime("%m-%d-%Y %H:%M:%S"), "Request arrived.")
             copy_log_to_dir()
             git_push()
             writeZero()
         else:
-            print(datetime.now().strftime("%m_%d_%Y-%H_%M_%S"), "Waiting for request.")
+            print(datetime.now().strftime("%m-%d-%Y %H:%M:%S"), "Waiting for request.")
     except:
         pass
 
