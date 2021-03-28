@@ -71,6 +71,6 @@ def shouldPush():
 
 def repeatShouldPush():
     shouldPush()
-    threading.Timer(5 * 60, repeatShouldPush).start()
+    threading.Timer(10, repeatShouldPush).start()
 
 repeatShouldPush()
